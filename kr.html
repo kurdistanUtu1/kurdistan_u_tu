@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	
+    <title> Kurdistan û Tu </title>
+	
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/icon" href="assets/images/favicon.ico"/>
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Slick slider -->
+    <link href="assets/css/slick.css" rel="stylesheet">
+    <!-- Theme color -->
+    <link id="switcher" href="assets/css/theme-color/default-theme.css" rel="stylesheet">
+
+    <!-- Main Style -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Fonts -->
+
+    <!-- Open Sans for body font -->
+	<link href="https://fonts.googleapis.com/css?family=Amiri&display=swap" rel="stylesheet">
+    <!-- Lato for Title -->
+
+
+	
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+	<!-- Start Header -->
+	<header id="mu-header" class="" role="banner">
+		<div class="container">
+			<nav class="navbar navbar-default mu-navbar">
+			  	<div class="container-fluid">
+				    <!-- Brand and toggle get grouped for better mobile display -->
+				    <div class="navbar-header">
+				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				        <span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+
+				      <!-- Text Logo -->
+				      <a class="navbar-brand" href="index.html"><i class="fa fa-book" aria-hidden="true"></i> Kurdistan û Tu </a>
+
+				      <!-- Image Logo -->
+				      <!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png"></a> -->
+
+
+				    </div>
+
+				    <!-- Collect the nav links, forms, and other content for toggling -->
+				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				      	<ul class="nav navbar-nav mu-menu navbar-right">
+					        <li><a href="#">Rûpela Serî</a></li>
+					        <li><a href="#mu-book-overview">Pirtûk bi kurtî</a></li>
+							<li><a href="#mu-counter">Amar derbarê pirtûkê da</li>
+							<li><a href="#mu-testimonials">Hin nirxandinên xwendevanan </a></li>
+					        <li><a href="#mu-author">Derbarê nivîskar da </a></li>
+							<li><a href="#mu-author">Ji bo pirs û daxwazê</a></li>
+				            
+				      	</ul>
+				    </div><!-- /.navbar-collapse -->
+			  	</div><!-- /.container-fluid -->
+			</nav>
+		</div>
+	</header>
+	<!-- End Header -->
+    
+	
+	<!-- Start Featured Slider -->
+	<!--<img src="assets/images/ebook.png" alt="Ebook img">-->
+	<section id="mu-hero">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-6 col-sm-6 col-sm-push-6">
+					
+					<body>
+						<div class="book3d-container">
+							<img class="vd-indicator" src="assets/images/3d-icon.png" alt="3D Icon"> 
+							<div class="book3d" id="book">
+								<div class="book3dd" id="book">
+								<img src="assets/images/cover_kurdi.png" alt="">
+							
+							</div>
+							</div>
+						</div>
+
+						<div class="contact-buttons1">
+							
+
+						<a onclick="redirectToWhatsApp('buy_kr.html')" target="_blank" class="whatsapp-button">
+							<img src="shpping.png" alt="WhatsApp Icon">    Ji bo kirîna pirtûkê 
+						</a>
+						<script>
+							function redirectToWhatsApp(url) {
+							   window.location.href = url;
+							}
+						 </script>
+							
+						</div>
+					
+ 
+						<script>
+							document.addEventListener("DOMContentLoaded", function() {
+								const book = document.getElementById("book");
+								let isUserRotated = false;
+								let previousTouchX = 0;
+								let rotationAngle = 0;
+								let sensitivity = 0.5; // Initial sensitivity value
+								let lastTouchTime = 0;
+								let lastTouchX = 0;
+								let rotationTimer; // Timer for automatic rotation
+						
+								// Add event listeners for touch events
+								book.addEventListener("touchstart", handleTouchStart);
+								book.addEventListener("touchmove", handleTouchMove);
+								book.addEventListener("touchend", handleTouchEnd);
+						
+								function handleTouchStart(event) {
+									isUserRotated = true;
+									previousTouchX = event.touches[0].clientX;
+									// Stop the rotation animation completely when touch starts
+									book.style.animation = "none";
+									clearTimeout(rotationTimer); // Clear any existing rotation timer
+									event.preventDefault(); // Prevent default touch behavior
+								}
+						
+								function handleTouchMove(event) {
+									if (!isUserRotated) return;
+						
+									let touchX = event.touches[0].clientX;
+									let deltaTime = event.timeStamp - lastTouchTime;
+									let deltaX = touchX - previousTouchX;
+									let speed = Math.abs(deltaX / deltaTime); // Speed in pixels per millisecond
+						
+									// Calculate the remaining rotation needed to reach 360 degrees
+									let remainingRotation = 360 - Math.abs(rotationAngle % 360);
+						
+									// Calculate a deceleration factor based on the remaining rotation and speed
+									let decelerationFactor = Math.max(0.1, Math.min(8, remainingRotation / 180) * (1 + speed));
+						
+									// Adjust sensitivity based on the deceleration factor
+									sensitivity = Math.max(0.1, Math.min(3, speed)) * decelerationFactor;
+						
+									rotationAngle += deltaX * sensitivity;
+									rotationAngle %= 360; // Ensure rotation stays within 360 degrees
+						
+									book.style.transform = `rotateY(${rotationAngle}deg)`;
+									previousTouchX = touchX;
+									lastTouchTime = event.timeStamp;
+									clearTimeout(rotationTimer); // Clear any existing rotation timer
+									event.preventDefault(); // Prevent default touch behavior
+								}
+						
+								function handleTouchEnd() {
+									isUserRotated = false;
+									// Start the rotation timer after 5 seconds of inactivity
+									rotationTimer = setTimeout(autoRotate, 1500);
+								}
+						
+								// Function to automatically rotate the book
+								function autoRotate() {
+									rotationAngle += 0.5; // Adjust the rotation angle increment as needed (slower speed)
+									book.style.transform = `rotateY(${rotationAngle}deg)`;
+									// Continue rotating until the user interacts with the book again
+									rotationTimer = setTimeout(autoRotate, 10); // Adjust the interval as needed
+								}
+							});
+						</script>
+						
+						
+							
+						
+					
+				</div>
+
+				
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Start Featured Slider -->
+	
+	<!-- Start main content -->
+
+	<main role="main">
+
+	
+			<!-- Start Counter -->
+			
+
+		<!-- Start Book Overview -->
+		<section id="mu-book-overview">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mu-book-overview-area">
+
+							<div class="mu-heading-area">
+								<h3 class="mu-heading-title" > Pirtûk bi kurtî </h3>
+								<span class="mu-header-dot"></span>
+								
+							</div>
+
+							<!-- Start Book Overview Content -->
+							<div class="mu-book-overview-content">
+								<div class="row">
+
+									<!-- Book Overview Single Content -->
+									<div class="col-md-3 col-sm-6">
+										<div class="mu-book-overview-single">
+											
+												
+										
+											<h3>Şayesandina pirtûkê</h3>
+											<p>Pirtûk bi helbest, yad û yadgarîyên hestine berbelavbûyî di navbera du evînan da dişayesîne, evîna welêt, Kurdistan, û evîna kesekî din</p>
+										</div>
+									</div>
+									<!-- / Book Overview Single Content -->
+
+									<!-- Book Overview Single Content -->
+									<div class="col-md-3 col-sm-6">
+										<div class="mu-book-overview-single">
+											
+												
+										
+											<h3>Zimanê pirtûkê </h3>
+											<p>Pirtûk bi zimanê erebî û kurdî ye<br> 
+												Nivîs bi zimanê erebî li rexê rastê ye û heman nivîs û naverok bi zimanê kurdî li rexê çepê ye </p>
+											
+										</div>
+									</div>
+									<!-- / Book Overview Single Content -->
+
+
+
+									<!-- Book Overview Single Content -->
+									<div class="col-md-3 col-sm-6">
+										<div class="mu-book-overview-single">
+											
+												
+											<h3>Armanca pirtûkê</h3>
+											
+											<p>Pirtûk xwedî gelek armancan e, lê armanca yekem ew e, ku zimanê kurdî li kêlek zimanên cîhanî yên din dayîne<br> 
+												Ji bilî wê, belavkirina zimanê kurdî bi awayekî hêsan û hebûna zimanên dîtir jî li rex wê ji bo sivikkirin, zelalkirin û wergerandina têgehên nedîyar<br>
+												Raserî van, gihandina zimanê kurdî bo gelek xanî û nivîsgehên cîhanî, ji bo parastina zimanê kurdî her û her xurttir bibe</p>
+										</div>
+										</div>
+									</div>
+									<!-- / Book Overview Single Content -->
+
+									<!-- Book Overview Single Content -->
+									<div class="col-md-3 col-sm-6">
+										<div class="mu-book-overview-single">
+											
+												
+											<h3>Kalîteya pirtûkê </h3>
+											<p>Pirtûk li ser pelikine reş û xwedî kalîteyeke bilind û nermik hatiye çapkirin, da xwendevan çêjeke xweş ji xwendin û destdanîna li ser pirtûkê bibîne.<br> 
+												Bergê pirtûkê li ser kertonê hêzdarkirî hatiye çapkirin li gel zêdekirina qapekî parastinê li dijî rûşandinê<br>
+												Pirtûk tevî sindoqeke taybet tê, da pirtûk tê da were danîn dema bidawîbûna xwendina wê, û ew jî xwedî qapekî parastinê ye li dijî rûşandinê.</p>
+										</div>
+									</div>
+									<!-- / Book Overview Single Content -->
+
+
+								</div>
+							</div>
+							<!-- End Book Overview Content -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Book Overview -->
+
+		<section id="mu-counter">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mu-counter-area">
+
+							<div class="mu-counter-block">
+								<div class="row">
+									<div class="mu-heading-area">
+										<h3 class="mu-heading-title" >Amar derbarê pirtûkê da</h3>
+										<span class="mu-header-dot"></span>
+										
+									
+									<!-- / Single Counter -->
+
+										
+									<!-- Start Single Counter -->
+									<div class="col-md-3 col-sm-6">
+										<div class="mu-single-counter">
+											<i class="fa fa-files-o" aria-hidden="true"></i>
+											<div class="counter-value" data-count="174">0</div>
+											<h5 class="mu-counter-name">Hejmara rûpelan ya giştî </h5>
+										</div>
+									</div>
+									<!-- / Single Counter -->
+
+									<div class="col-md-3 col-sm-6">
+										<div class="mu-single-counter">
+											<i class="fa fa-users" aria-hidden="true"></i>
+											<div class="counter-value" data-count="487">0</div>
+											<h5 class="mu-counter-name">Hejmarên firotî </h5>
+										</div>
+									</div>
+									<!-- / Single Counter -->
+								</div>
+								<!-- Start Single Counter -->
+									<div class="col-md-3 col-sm-6">
+										<div class="mu-single-counter">
+											<i class="fa fa-file-text-o" aria-hidden="true"></i>
+											<div class="counter-value" data-count="2024">0</div>
+											<h5 class="mu-counter-name">Sala derketina pirtûkê  </h5>
+										</div>
+									</div>
+
+									<!-- Start Single Counter -->
+								
+						
+									<!-- Start Single Counter -->
+									
+										<div class="col-md-3 col-sm-6">
+										<div class="mu-single-counter">
+											<i class="fa fa-trophy" aria-hidden="true"></i>
+
+											<div class="counter-value" data-count="570">0</div>
+											<h5 class="mu-counter-name">Hejmara mêvanên malperê  </h5>
+										</div>
+									</div>
+									<!-- / Single Counter -->
+									
+
+
+
+								</div>
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</section>
+
+
+	
+
+
+			<!-- End Counter -->
+	
+
+
+		<!-- Start Testimonials -->
+		<section id="mu-testimonials">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mu-testimonials-area">
+							<div class="mu-heading-area">
+								<h2 class="mu-heading-title">Xwendevanan derbarê pirtûkê da çi gotiye? </h2>
+								<span class="mu-header-dot"></span>
+							</div>
+
+							<div class="mu-testimonials-block">
+								<ul class="mu-testimonial-slide">
+
+									<li>
+										<p>"Spas ji bo pirtûka, ku gelek alîyên welatperwer û yên derbarê evîna kesê din da, di nav xwe da hewand, û dîsa spas jê ra ji ber ku bal danî ser zimanê kurdî û ez hêştim ku ez pirtûka xwe ya yekem bi zimanê kurdî bi hêsanî bixwînim."</p>
+										<img class="mu-rt-img" src="assets/images/reader-1.jpg" alt="img">
+										<h5 class="mu-rt-name"> - Aştî</h5>
+										<span class="mu-rt-title">Ji Norwêcê</span>
+									</li>
+
+									<li>
+										<p>"Têgihiştina wê hêsan e ji bo hezkerên xwendina bi zimanê kurdî û balê dikişîne ser alîyê hestdar û welatperwer. Min gelekî ji pirtûkê hez kir û ez ê kopîyeke din jê bikirim da ez weke dîyarî bidime bavê xwe."</p>
+										<img class="mu-rt-img" src="assets/images/reader-2.jpg" alt="img">
+										<h5 class="mu-rt-name"> - Sîwar </h5>
+										<span class="mu-rt-title">Ji Danîmarka </span>
+									</li>
+
+									<li>
+										<p>"Pirtûk nayab e ji alîyê naverokê va û kalîteya berg û pelikên pirtûkê jî nayab e"</p>
+										<img class="mu-rt-img" src="assets/images/reader-3.jpg" alt="img">
+										<h5 class="mu-rt-name">- Baran</h5>
+										<span class="mu-rt-title">Ji almanya </span>
+									</li>
+
+									<li>
+										<p>"Her bendek xwedî bandorekê bû li ser dilê min û mîna ku nivîskar di dilê min û dilê hemî kurdan da bû û tiştên ku dil vedişêre wergerand xûnaveke li ser rûpelan"</p>
+										<img class="mu-rt-img" src="assets/images/reader-4.jpg" alt="img">
+										<h5 class="mu-rt-name">- Evîn </h5>
+										<span class="mu-rt-title">Ji Fransayê</span>
+									</li>
+
+
+								</ul>
+							</div>
+							<div class="mu-arrow-container">
+								<div class="mu-arrow-left"></div>
+								<div class="mu-arrow-right"></div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Testimonials -->
+
+
+		<section id="mu-author">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mu-author-area">
+
+							<div class="mu-heading-area">
+								<h3 class="mu-heading-title">Ji bo pirs û kirînê</h3>
+								<span class="mu-header-dot"></span>
+							</div>
+
+							<!-- Start Author Content -->
+							<div class="mu-author-content">
+								<div class="row">
+									<div class="col-md-6">
+										
+									</div>
+									<div class="col-md-6">
+										<div class="mu-author-info">
+											
+
+	
+											<div class="contact-buttons">
+												<h1>ji kerema xwe li ser yekê ji van du vebijêrkan bitikîne</h1>
+
+											<a onclick="redirectToWhatsApp('buy_kr.html')" target="_blank" class="whatsapp-button">
+												<img src="shpping.png" alt="WhatsApp Icon">    Ji bo kirînê
+											</a>
+											<script>
+												function redirectToWhatsApp(url) {
+												   window.location.href = url;
+												}
+											 </script>
+												<a href="https://www.instagram.com/kurdistan_u_tu/" target="_blank" class="instagram-button">
+													<img src="assets/images/insta_logo.png" alt="Instagram Icon">   Ji bo pirsan 
+												</a>
+											</div>
+										</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- End Author Content -->
+							
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- End Author -->
+		
+		
+
+
+
+
+	
+
+		<!-- Start Author -->
+		<section id="mu-author">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mu-author-area">
+
+							<div class="mu-heading-area">
+								<h3 class="mu-heading-title">Derbarê nivîskar da </h3>
+								<span class="mu-header-dot"></span>
+							</div>
+
+							<!-- Start Author Content -->
+							<div class="mu-author-content">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="mu-author-image">
+											<img src="assets/images/author.png" alt="Author Image">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="mu-author-info">
+											<h3>Ciwan Osman </h3>
+											<p>Ciwan Osman ji Rojavayê Kurdistanê </p>
+											<p>Di sala 2015an da, biryara reva ji şer da, û di gera li ewlehî û asoyine nû da li Danîmarkê serê xwe li penaberîyê xist, û li wir di navbera kar û xwendinê da diçû û dihat, heta ku bawernameya endazyarîya elektronîkê ji zanîngeha Aarhusê bi dest xist.  </p>
+											<p>Ji nav xebatên wî yên wêjeyî, beşdarbûna wî di pirtûka ”Koçberên nûciwan, ên ku ji şer tenê û bê xwedî derketine” da cih girt. Ev pirtûk bi zimanê danîmarkî derket û zêdetirî ji deh hezar kopî jê hatine firotin.  </p>
+											<p> Lê karê wî yê niha, ew weke endazyar di warê elektronîkê da dixebite, û ew nivîskar û sazkarê grafîk û çapê ye jî. Ji bilî hindê, di warên avakirina malperên elektronî da dixebite û meraqa wî digihîne heta bi pêşkêşvanîya semîneran ji bo temenên cihêreng li Danîmarkê.</p>
+
+									<p>Li kêlek van karan, wekî berpirsê dosyayên zarokên bêxwedî dixebite û alîkarîya wan di mijarên gihandina destê wan û xwedîyên wan bi hev va dike, û heta vê kêlîyê alîkarî da û destê zêdetir ji 70 malbatî ji welatên cihêreng li Danîmarkê gihandine hevdu.</p>
+									<p>Ev çend xêz bûn ji bo pênaseya nivîskar û ew hêvî dike ku ev pirtûk li gorî hêvî û mirazên we be.</p>
+									<p>Li gel silavên germ </p>
+									<p>Ciwan Osman</p>
+
+
+											<img class="mu-author-sign" src="assets/images/author-signature.png" alt="Author Signature">
+
+										
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- End Author Content -->
+							
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		
+	
+
+
+	
+	</main>
+	
+	<!-- End main content -->	
+	
+ 	
+			
+	<!-- Start footer -->
+	<footer id="mu-footer" role="contentinfo">
+		<div class="container">
+			<div class="mu-footer-area">
+				
+				<h2 class="mu-copyright">Malper hat amadekirin ji aliyê &copy;Jwan Osman </h2>
+			</div>
+		</div>
+
+	</footer>
+	<!-- End footer -->
+
+		
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- Bootstrap -->
+    <script src="assets/js/bootstrap.min.js"></script>
+	<!-- Slick slider -->
+    <script type="text/javascript" src="assets/js/slick.min.js"></script>
+    <!-- Counter js -->
+    <script type="text/javascript" src="assets/js/counter.js"></script>
+    <!-- Ajax contact form  -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+   
+ 
+	
+    <!-- Custom js -->
+	<script type="text/javascript" src="assets/js/custom.js"></script>
+
+	
+
+	
+
+  </body>
+</html>

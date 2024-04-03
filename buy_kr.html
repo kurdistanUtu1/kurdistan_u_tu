@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ji bo kirîna pirtûkê</title>
+    <link rel="stylesheet" href="cheakoutstyle.css"> <!-- Link to your external CSS file -->
+    
+    <!-- Include PayPal JavaScript SDK -->
+  
+
+    <script src="https://www.paypal.com/sdk/js?client-id=ASOBbmLcFTc4tlLNk0OJ1lsmMAvTq7bqU-kxSxSCwP68VroJ_HuTvemhj1gJF2dvWzFgBqgWIl2a94kS&currency=EUR"></script>
+    
+
+</head>
+<body>
+    <div class="container">
+        <form id="checkoutForm">
+            <h2>Kirîna pirtûkê</h2>
+            
+
+            <div class="product-info">
+                <img src="product_image.png" alt="Product Image" class="product-image">
+                <div class="product-quantity">
+                    <label for="quantity" >Hejmara pirtûkan</label>
+                    <div class="quantity-input">
+                        <button type="button" class="quantity-btn" id="decrement">-</button>
+                        <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+                        <button type="button" class="quantity-btn" id="increment">+</button>
+                    </div>
+                </div>
+            </div>
+            <h3>Zanyarî derbarê sparîşê da</h3>
+
+    
+
+            <div class="form-group">
+                <div class="test">
+                <label for="country">Ji kerema xwe welatê sparîşê vebijêre</label>
+                  </div>
+                <select id="country" name="country" required>
+                    <option value="Germany">Germany</option>
+                    <option value="Denmark">Denmark</option>
+                    <option value="Sweden">Sweden</option>
+                    <option value="Belgium">Belgium</option>
+                    <option value="Netherlands">Netherlands-Holland</option>
+                    <option value="Albania">Albania</option>
+                    <option value="Andorra">Andorra</option>
+                    <option value="Austria">Austria</option>
+                    <option value="Belarus">Belarus</option>
+                    <option value="Belgium">Belgium</option>
+                    <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                    <option value="Bulgaria">Bulgaria</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Croatia">Croatia</option>
+                    <option value="Cyprus">Cyprus</option>
+                    <option value="Czech Republic">Czech Republic</option>
+                    <option value="Denmark">Denmark</option>
+                    <option value="Finland">Finland</option>
+                    <option value="France">France</option>
+                    <option value="Greece">Greece</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Hungary">Hungary</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Luxembourg">Luxembourg</option>
+                    <option value="Netherlands">Netherlands-Holland</option>
+                    <option value="Norway">Norway</option>
+                    <option value="Poland">Poland</option>
+                    <option value="Portugal">Portugal</option>
+                    <option value="Romania">Romania</option>
+                    <option value="Spain">Spain</option>
+                    <option value="Sweden">Sweden</option>
+                    <option value="Switzerland">Switzerland</option>
+                    <option value="Turkey">Turkey</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="United States">United States</option>
+                    <option value="5 euro">5 euro تحويل </option>
+                    <option value="3 euro">3 euro تحويل</option>
+
+                    <!-- Other country options -->
+                </select>
+            </div>
+
+           
+
+
+            <div class="price-info1">
+                <div class="book-quantity">
+                    <span id="bookQuantity">Hejmara pirtûkên hilbijartî : 1 pirtûk</span>
+                </div>
+                <div class="total-price">
+                    <span id="totalPrice"> Buhayê giştî tevî sparîşê : 30 Euro </span>
+                </div>
+            </div>
+
+            <!-- PayPal Button -->
+           
+                <p class="text-with-border"> Li vir bitikîne ji bo tijîkirina zanyarîyên sparîş û peredanê</p>
+                <img src="aroow.png"  class="aroow-image">
+            <div id="paypal-button-container"></div>
+            
+
+        </form>
+        
+    </div>
+    
+
+    <script>
+       document.getElementById("increment").addEventListener("click", function () {
+            var quantityInput = document.getElementById("quantity");
+            var quantity = parseInt(quantityInput.value);
+            quantityInput.value = quantity + 1;
+            updateTotalPrice(); // Update total price when quantity changes
+            updateBookQuantity(); // Update book quantity
+        });
+
+        document.getElementById("decrement").addEventListener("click", function () {
+            var quantityInput = document.getElementById("quantity");
+            var quantity = parseInt(quantityInput.value);
+            if (quantity > 1) {
+                quantityInput.value = quantity - 1;
+                updateTotalPrice(); // Update total price when quantity changes
+                updateBookQuantity(); // Update book quantity
+            }
+        });
+
+        document.getElementById("quantity").addEventListener("input", function () {
+            updateTotalPrice(); // Update total price when quantity changes
+            updateBookQuantity(); // Update book quantity
+        });
+
+        document.getElementById("country").addEventListener("change", function () {
+            updateTotalPrice(); // Update total price when country changes
+        });
+
+        function updateTotalPrice() {
+            var quantity = parseInt(document.getElementById("quantity").value);
+            var bookPrice = 20; // Book price
+            var shippingPrice = calculateShipping(); // Calculate shipping based on country
+
+            if (document.getElementById("country").value === "5 euro" || document.getElementById("country").value === "3 euro") {
+        bookPrice = 0;
+    }
+            var totalPrice = quantity * bookPrice + shippingPrice;
+            document.getElementById("totalPrice").textContent = "Buhayê giştî tevî sparîşê : "+totalPrice + " Euro" ;
+        }
+
+        function calculateShipping() {
+            var country = document.getElementById("country").value;
+            switch (country) {
+                case "Germany":
+                case "Denmark":
+                    return 10;
+                case "Sweden":
+                case "Switzerland":
+                case "Turkey":
+                case "United Kingdom":
+                case "United States":
+                case "Norway":
+                case "Austria":
+                case "Finland":
+                    return 15;
+                default:
+                    return 13;
+                case"5 euro":
+                return 5;
+                case"3 euro":
+                return 3;
+            }
+        }
+
+        function updateBookQuantity() {
+            var quantity = parseInt(document.getElementById("quantity").value);
+            document.getElementById("bookQuantity").textContent = "Hejmara pirtûkên hilbijartî : " + quantity + " pirtûk" ;
+        }
+
+        function scrollPageDown() {
+        window.scrollBy(0, 200); // Scrolls the page down by 200 pixels
+    }
+
+    // Initialize PayPal Button
+    // Initialize PayPal Button
+    var FUNDING_SOURCES = [paypal.FUNDING.CREDIT, paypal.FUNDING.CARD];
+        FUNDING_SOURCES.forEach(function(fundingSource){
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                var quantity = parseInt(document.getElementById("quantity").value);
+                var bookPrice = 20; // Assuming the book price is always 10 Euro
+                var shippingPrice = calculateShipping();
+                var totalPrice = quantity * bookPrice + shippingPrice;
+                
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: totalPrice.toString(),
+                            currency_code: 'EUR'
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+    return actions.order.capture().then(function(details) {
+        console.log('Payment captured:', details);
+        window.location.href = 'thanks.html?name=' + encodeURIComponent(details.payer.name.given_name);
+    });
+},
+            fundingSource: fundingSource,
+        }).render('#paypal-button-container'); // Render the PayPal button into this container
+    })
+</script>
+<footer id="mu-footer" role="contentinfo">
+    <div class="container">
+        <div class="mu-footer-area">
+            
+            <h2 class="mu-copyright">Malper hat amadekirin ji aliyê &copy;Jwan Osman </h2>
+        </div>
+    </div>
+
+</footer>
+</body>
+
+</html>
