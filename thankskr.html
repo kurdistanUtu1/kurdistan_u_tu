@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/icon" href="assets/images/favicon.ico"/>
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Main Style -->
+    <link href="style.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Amiri&display=swap" rel="stylesheet">
+    <style>
+        body, h1, p, a {
+            text-align: center; /* Center text */
+        }
+        .container, .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .mu-author-info, .contact-buttons {
+            margin: 0 auto;
+        }
+        .whatsapp-button {
+			margin-right: 50px;
+			width: 250px;
+            display: inline-block; /* For centering inline elements like links */
+			margin-top: -40px; /* Adjust the value as needed */
+        }
+		.subtext {
+            font-size: 0.8em; /* Adjust subtext size */
+            color: #000000; /* Subtext color */
+            margin-top: 10px; /* Space between main text and subtext */
+        }
+		.instagram-wrapper {
+    position: relative;
+    top: -30px; /* Adjust the value as needed */
+}
+    </style>
+</head>
+<body>
+
+	<section id="mu-hero">
+		<h1 id="customMessage">Spas </h1><br>
+		<p class="subtext">Spas ji ber ku tu dixwînî</p>
+		<p class="subtext">Spas ji ber ku tu piştgirîyê didî</p>
+		<p class="subtext">Spas ji ber ku tu zimanê kurdî diparêzî </p>
+		<p class="subtext">Spas ji ber ku te pirtûk kirî </p><br>
+		<p class="subtext">Daxwaza te bi awayekî serkeftî kete destê me û sparîş ê di demeke kin da were birêkirin </p>
+		<p class="subtext">Ê baş be heger tu me û nûçeyên me yên herî dawîn li ser Instagramê bişopînî </p>
+		
+		<p>&nbsp;</p> 
+		<p class="subtext">Ji bo şopandinê, li vir bitikîne </p>
+		<script>
+			function getParameterByName(name, url = window.location.href) {
+				name = name.replace(/[\[\]]/g, '\\$&');
+				var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+					results = regex.exec(url);
+				if (!results) return null;
+				if (!results[2]) return '';
+				return decodeURIComponent(results[2].replace(/\+/g, ' '));
+			}
+	
+			const buyerName = getParameterByName('name');
+			const messageElement = document.getElementById('customMessage');
+			if (buyerName) {
+				messageElement.innerText = `Spas , ${buyerName}`;
+			} else {
+				messageElement.innerText = "Spas ";
+			}
+		</script>
+	</section>
+
+<section id="mu-author">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                
+					
+                    <div class="mu-author-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- Content can be added here -->
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mu-author-info">
+                                    <div class="contact-buttons">
+										<div class="instagram-wrapper">
+										<a href="https://www.instagram.com/kurdistan_u_tu/" target="_blank" class="whatsapp-button">
+											<img src="assets/images/insta_logo.png" alt="Instagram Icon">Instagram
+										</a>
+									</div>
+                                        <script>
+                                            function redirectToWhatsApp(url) {
+                                                window.location.href = url;
+                                            }
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer id="mu-footer" role="contentinfo">
+    <div class="container">
+        <div class="mu-footer-area">
+            
+            <h2 class="mu-copyright">Malper hat amadekirin ji aliyê &copy;Jwan Osman </h2>
+        </div>
+    </div>
+
+</footer>
+</body>
+</html>
