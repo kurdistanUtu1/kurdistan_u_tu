@@ -6,15 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Checkout</title>
     <link rel="stylesheet" href="cheakoutstyle.css"> <!-- Link to your external CSS file -->
-    
-    <!-- Include PayPal JavaScript SDK -->
-  
-
-    <script src="https://www.paypal.com/sdk/js?client-id=ASOBbmLcFTc4tlLNk0OJ1lsmMAvTq7bqU-kxSxSCwP68VroJ_HuTvemhj1gJF2dvWzFgBqgWIl2a94kS&currency=EUR"></script>
-    
-
+    <script>
+        var paypalClientId = "ASOBbmLcFTc4tlLNk0OJ1lsmMAvTq7bqU-kxSxSCwP68VroJ_HuTvemhj1gJF2dvWzFgBqgWIl2a94kS";
+        
+        // Create the script element
+        var scriptElement = document.createElement("script");
+        // Set the source attribute dynamically with the PayPal client ID
+        scriptElement.src = `https://www.paypal.com/sdk/js?client-id=${paypalClientId}&currency=EUR`;
+        // Append the script element to the head of the document
+        document.head.appendChild(scriptElement);
+    </script>
 </head>
 <body>
+    
     <div class="container">
         <form id="checkoutForm">
             <h2>طلب الكتاب</h2>
