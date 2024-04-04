@@ -9,11 +9,17 @@
     <script>
         var paypalClientId = "ASOBbmLcFTc4tlLNk0OJ1lsmMAvTq7bqU-kxSxSCwP68VroJ_HuTvemhj1gJF2dvWzFgBqgWIl2a94kS";
         
-        // Create the script element
         var scriptElement = document.createElement("script");
-        // Set the source attribute dynamically with the PayPal client ID
         scriptElement.src = `https://www.paypal.com/sdk/js?client-id=${paypalClientId}&currency=EUR`;
-        // Append the script element to the head of the document
+    
+        scriptElement.onload = function() {
+            console.log("PayPal SDK loaded successfully");
+        };
+    
+        scriptElement.onerror = function() {
+            console.error("Error loading PayPal SDK");
+        };
+    
         document.head.appendChild(scriptElement);
     </script>
 </head>
