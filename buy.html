@@ -6,22 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Checkout</title>
     <link rel="stylesheet" href="cheakoutstyle.css"> <!-- Link to your external CSS file -->
-    <script>
-        var paypalClientId = "ASOBbmLcFTc4tlLNk0OJ1lsmMAvTq7bqU-kxSxSCwP68VroJ_HuTvemhj1gJF2dvWzFgBqgWIl2a94kS";
-        
-        var scriptElement = document.createElement("script");
-        scriptElement.src = `https://www.paypal.com/sdk/js?client-id=${paypalClientId}&currency=EUR`;
-    
-        scriptElement.onload = function() {
-            console.log("PayPal SDK loaded successfully");
-        };
-    
-        scriptElement.onerror = function() {
-            console.error("Error loading PayPal SDK");
-        };
-    
-        document.head.appendChild(scriptElement);
-    </script>
+    <script src="https://www.paypal.com/sdk/js?client-id=ASOBbmLcFTc4tlLNk0OJ1lsmMAvTq7bqU-kxSxSCwP68VroJ_HuTvemhj1gJF2dvWzFgBqgWIl2a94kS&currency=EUR"></script>
+
 </head>
 <body>
     
