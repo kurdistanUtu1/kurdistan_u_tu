@@ -40,41 +40,40 @@
                 <label for="country">Ji kerema xwe welatê sparîşê vebijêre</label>
                   </div>
                 <select id="country" name="country" required>
-                    <option value="Germany">Germany</option>
-                    <option value="Denmark">Denmark</option>
-                    <option value="Sweden">Sweden</option>
-                    <option value="Belgium">Belgium</option>
-                    <option value="Netherlands">Netherlands-Holland</option>
-                    <option value="Albania">Albania</option>
-                    <option value="Andorra">Andorra</option>
-                    <option value="Austria">Austria</option>
-                    <option value="Belarus">Belarus</option>
-                    <option value="Belgium">Belgium</option>
-                    <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-                    <option value="Bulgaria">Bulgaria</option>
-                    <option value="Canada">Canada</option>
-                    <option value="Croatia">Croatia</option>
-                    <option value="Cyprus">Cyprus</option>
-                    <option value="Czech Republic">Czech Republic</option>
-                    <option value="Denmark">Denmark</option>
-                    <option value="Finland">Finland</option>
-                    <option value="France">France</option>
-                    <option value="Greece">Greece</option>
-                    <option value="Germany">Germany</option>
-                    <option value="Hungary">Hungary</option>
-                    <option value="Italy">Italy</option>
-                    <option value="Luxembourg">Luxembourg</option>
-                    <option value="Netherlands">Netherlands-Holland</option>
-                    <option value="Norway">Norway</option>
-                    <option value="Poland">Poland</option>
-                    <option value="Portugal">Portugal</option>
-                    <option value="Romania">Romania</option>
-                    <option value="Spain">Spain</option>
-                    <option value="Sweden">Sweden</option>
-                    <option value="Switzerland">Switzerland</option>
-                    <option value="Turkey">Turkey</option>
-                    <option value="United Kingdom">United Kingdom</option>
-                    <option value="United States">United States</option>
+                    <option value="Germany">Germany - المانيا</option>
+                    <option value="Denmark">Denmark - الدنمارك</option>
+                    <option value="Sweden">Sweden - السويد</option>
+                    <option value="Belgium">Belgium - بلجيكا</option>
+                    <option value="Netherlands">Netherlands-Holland - هولندا</option>
+                    <option value="Albania">Albania - ألبانيا</option>
+                    <option value="Andorra">Andorra - أندورا</option>
+                    <option value="Austria">Austria - النمسا</option>
+                    <option value="Belarus">Belarus - روسيا البيضاء</option>
+                    <option value="Bosnia and Herzegovina">Bosnia and Herzegovina - البوسنة والهرسك</option>
+                    <option value="Bulgaria">Bulgaria - بلغاريا</option>
+                    <option value="Canada">Canada - كندا</option>
+                    <option value="Croatia">Croatia - كرواتيا</option>
+                    <option value="Cyprus">Cyprus - قبرص</option>
+                    <option value="Czech Republic">Czech Republic - جمهورية التشيك</option>
+                    <option value="Denmark">Denmark - الدنمارك</option>
+                    <option value="Finland">Finland - فنلندا</option>
+                    <option value="France">France - فرنسا</option>
+                    <option value="Greece">Greece - اليونان</option>
+                    <option value="Germany">Germany - ألمانيا</option>
+                    <option value="Hungary">Hungary - المجر</option>
+                    <option value="Italy">Italy - إيطاليا</option>
+                    <option value="Luxembourg">Luxembourg - لوكسمبورغ</option>
+                    <option value="Netherlands">Netherlands-Holland - هولندا</option>
+                    <option value="Norway">Norway - النرويج</option>
+                    <option value="Poland">Poland - بولندا</option>
+                    <option value="Portugal">Portugal - البرتغال</option>
+                    <option value="Romania">Romania - رومانيا</option>
+                    <option value="Spain">Spain - إسبانيا</option>
+                    <option value="Sweden">Sweden - السويد</option>
+                    <option value="Switzerland">Switzerland - سويسرا</option>
+                    <option value="Turkey">Turkey - تركيا</option>
+                    <option value="United Kingdom">United Kingdom - المملكة المتحدة</option>
+                    <option value="United States">United States - الولايات المتحدة</option>
                     <option value="5 euro">5 euro تحويل </option>
                     <option value="3 euro">3 euro تحويل</option>
 
@@ -206,6 +205,13 @@
     });
 },
             fundingSource: fundingSource,
+            style: {
+            layout: 'horizontal', // Change layout to horizontal
+            color: 'white', // Change button color
+            shape: 'rect', // Change button shape
+            height: 50 // Change button height
+            // Add any other styles you want to customize
+        }
         }).render('#paypal-button-container'); // Render the PayPal button into this container
     })
 </script>
