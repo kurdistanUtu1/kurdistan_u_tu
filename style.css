@@ -680,7 +680,8 @@ box-shadow: 30px 30px 80px rgb(0, 0, 0);
 	width: 100%;
 	background: #5e5e5e;
 	padding: 20px 10px;
-	margin: 10px 10px 15px;
+	margin: 10px 0 12px;
+	text-align: center;
 	margin-top: -60px;
 	
 	
@@ -1050,7 +1051,14 @@ box-shadow: 30px 30px 80px rgb(0, 0, 0);
 .mu-social-media a:focus {
 	background-color: #fff;
 }
-
+.mu-copyright1 {
+	padding-top: -15px;
+text-align: center;
+	font-size: 15px;
+	margin-bottom: 22px;
+	top: -30px;
+	
+}
 .mu-copyright {
 	padding-top: -15px;
 text-align: center;
