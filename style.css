@@ -179,6 +179,8 @@ button:focus {
 }
 
 /*Wordpress default class*/
+
+
 .book3d-container1{
     display: flex;
     align-items: center;
@@ -527,6 +529,7 @@ box-shadow: 30px 30px 80px rgb(0, 0, 0);
 
 
 
+
 .mu-hero-left h3 {
 	color: #fff;
 	font-size: 50px;
@@ -728,6 +731,9 @@ box-shadow: 30px 30px 80px rgb(0, 0, 0);
     margin-top: -50px;
 	padding-top: -100px;
   }
+
+
+
 .mu-author-area {
 	display: inline;
 	float: left;
@@ -961,6 +967,13 @@ box-shadow: 30px 30px 80px rgb(0, 0, 0);
 	margin-top: -80px;
 	margin-bottom: 110px;
 }
+.contact-buttons2 {
+	padding: -20px;
+    text-align: center;
+	margin-top: -30px;
+	margin-bottom: 150px;
+}
+
 
 
 .text_h1{
@@ -1023,7 +1036,14 @@ box-shadow: 30px 30px 80px rgb(0, 0, 0);
 	text-align: center;
 	width: 90%;
 }
-
+.mu-footer-area2{
+	display: inline;
+	float: left;
+	padding: 20px 17px;
+	text-align: center;
+	width: 100%;
+	text-align: center;
+}
 .mu-footer-area a{
 	font-weight: 800;
 }
@@ -1050,6 +1070,14 @@ box-shadow: 30px 30px 80px rgb(0, 0, 0);
 .mu-social-media a:hover,
 .mu-social-media a:focus {
 	background-color: #fff;
+}
+.mu-copyright2 {
+	padding-top: -10px;
+text-align: center;
+	font-size: 15px;
+	margin-bottom: 10px;
+	top: -10px;
+	
 }
 .mu-copyright1 {
 	padding-top: -15px;
