@@ -511,11 +511,11 @@ box-shadow: 30px 30px 80px rgb(0, 0, 0);
 	color: #fff;
 	display: block;
 	text-align: center;
-	font-weight: -100PX;
+	font-weight: -10PX;
 	font-size: 40px;
 	padding-top: -40px;
 	margin-top: -40px;
-	padding-bottom: -30px;
+	padding-bottom: -60px;
 }
 .text_test1 {
 	color: #fff;
