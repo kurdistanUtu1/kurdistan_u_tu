@@ -88,7 +88,7 @@
                     <span id="bookQuantity">1 : عدد الكتب المختارة</span>
                 </div>
                 <div class="total-price">
-                    <span id="totalPrice"> 30 Euro : السعر الكلي مع الشحن </span>
+                    <span id="totalPrice"> 26 Euro : السعر الكلي مع الشحن </span>
                 </div>
             </div>
 
@@ -149,7 +149,7 @@
             switch (country) {
                 case "Germany":
                 case "Denmark":
-                    return 8;
+                    return 6;
                 case "Sweden":
                 case "Switzerland":
                 case "Turkey":
@@ -158,9 +158,9 @@
                 case "Norway":
                 case "Austria":
                 case "Finland":
-                    return 13;
-                default:
                     return 11;
+                default:
+                    return 9;
                 case"5 euro":
                 return 5;
                 case"3 euro":

@@ -89,7 +89,7 @@
                     <span id="bookQuantity">Hejmara pirtûkên hilbijartî : 1 pirtûk</span>
                 </div>
                 <div class="total-price1">
-                    <span id="totalPrice"> Buhayê giştî tevî sparîşê : 30 Euro </span>
+                    <span id="totalPrice"> Buhayê giştî tevî sparîşê : 26 Euro </span>
                 </div>
             </div>
 
@@ -150,7 +150,7 @@
             switch (country) {
                 case "Germany":
                 case "Denmark":
-                    return 8;
+                    return 6;
                 case "Sweden":
                 case "Switzerland":
                 case "Turkey":
@@ -159,9 +159,9 @@
                 case "Norway":
                 case "Austria":
                 case "Finland":
-                    return 13;
-                default:
                     return 11;
+                default:
+                    return 9;
                 case"5 euro":
                 return 5;
                 case"3 euro":
