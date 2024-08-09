@@ -89,7 +89,7 @@
                     <span id="bookQuantity">Hejmara pirtûkên hilbijartî : 1 pirtûk</span>
                 </div>
                 <div class="total-price1">
-                    <span id="totalPrice"> Buhayê giştî tevî sparîşê : 19 Euro </span>
+                    <span id="totalPrice"> Buhayê giştî tevî sparîşê : 21 Euro </span>
                 </div>
             </div>
 
@@ -135,7 +135,7 @@
 
         function updateTotalPrice() {
             var quantity = parseInt(document.getElementById("quantity").value);
-            var bookPrice = 20; // Book price
+            var bookPrice = 14; // Book price
             var shippingPrice = calculateShipping(); // Calculate shipping based on country
 
             if (document.getElementById("country").value === "5 euro" || document.getElementById("country").value === "3 euro") {
@@ -150,7 +150,7 @@
             switch (country) {
                 case "Germany":
                 case "Denmark":
-                    return -1;
+                    return 7;
                 case "Sweden":
                 case "Switzerland":
                 case "Turkey":
@@ -159,9 +159,9 @@
                 case "Norway":
                 case "Austria":
                 case "Finland":
-                    return 11;
+                    return 13;
                 default:
-                    return 2;
+                    return 10;
                 case"5 euro":
                 return 5;
                 case"3 euro":
