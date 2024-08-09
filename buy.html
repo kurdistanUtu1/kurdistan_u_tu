@@ -134,7 +134,7 @@
 
         function updateTotalPrice() {
             var quantity = parseInt(document.getElementById("quantity").value);
-            var bookPrice = 20; // Book price
+            var bookPrice = 15; // Book price
             var shippingPrice = calculateShipping(); // Calculate shipping based on country
 
             if (document.getElementById("country").value === "5 euro" || document.getElementById("country").value === "3 euro") {
@@ -149,18 +149,17 @@
             switch (country) {
                 case "Germany":
                 case "Denmark":
-                    return -1;
+                    return 6;
                 case "Sweden":
                 case "Switzerland":
                 case "Turkey":
                 case "United Kingdom":
                 case "United States":
                 case "Norway":
-                case "Austria":
                 case "Finland":
-                    return 11;
+                    return 12;
                 default:
-                    return 2;
+                    return 9;
                 case"5 euro":
                 return 5;
                 case"3 euro":
