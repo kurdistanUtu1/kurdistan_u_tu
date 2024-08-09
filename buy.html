@@ -88,7 +88,7 @@
                     <span id="bookQuantity">1 : عدد الكتب المختارة</span>
                 </div>
                 <div class="total-price">
-                    <span id="totalPrice"> 22 Euro : السعر الكلي مع الشحن </span>
+                    <span id="totalPrice"> 21 Euro : السعر الكلي مع الشحن </span>
                 </div>
             </div>
 
@@ -134,7 +134,7 @@
 
         function updateTotalPrice() {
             var quantity = parseInt(document.getElementById("quantity").value);
-            var bookPrice = 15; // Book price
+            var bookPrice = 14; // Book price
             var shippingPrice = calculateShipping(); // Calculate shipping based on country
 
             if (document.getElementById("country").value === "5 euro" || document.getElementById("country").value === "3 euro") {
