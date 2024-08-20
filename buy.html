@@ -186,7 +186,7 @@ paypal.Buttons({
     
     createOrder: function(data, actions) {
         var quantity = parseInt(document.getElementById("quantity").value);
-        var bookPrice = 20; // Assuming the book price is always 10 Euro
+        var bookPrice = 14; // Assuming the book price is always 10 Euro
         var shippingPrice = calculateShipping();
         var totalPrice = quantity * bookPrice + shippingPrice;
         
